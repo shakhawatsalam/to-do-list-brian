@@ -9,17 +9,17 @@ const TodoForms = (props) => {
         inputRef.current.focus()
     })
 
-    const handleChange = e => {
+    const handleChange = e => {  //২/ (handleChange) function টি যা লিখা হয়েছে তা input নামক state এ সেট করে দিবে এবং তা input field এ দেখাবে।
         setInput(e.target.value)
     }
 
     const handleSubmit = e => {
         e.preventDefault();
-
         props.onSubmit({
             id: Math.floor(Math.random() * 10000),
             text: input
         })
+
         setInput('');
     };
     return (
@@ -38,10 +38,10 @@ const TodoForms = (props) => {
                     <button onClick={handleSubmit} className='todo-button edit'>
                         Update
                     </button>
-                    </>
-                    ) : (
-                    <>
-                    <input
+                </>
+            ) : (
+                <>
+                    <input    //১/ WEB PAGE এ প্রবেশ করার সাথে সাথে কিছু input field এ কিছু লিখলে (handleChange) function  টি call হবে।                       
                         placeholder='Add a todo'
                         value={input}
                         name='text'

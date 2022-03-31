@@ -4,9 +4,9 @@ import TodoForms from './TodoForms';
 
 const TodoList = () => {
     const [todos, setTodos] = useState([]);
-
+    
     const addTodo = todo => {
-        if (!todo.text || /^\s*$/.test(todo.text)) {
+        if (!todo.text || /^\s*$/.test(todo.text)) {  // input is ('')____/^\s*$/.test(todo.text) === true;
             return
         }
         const newTodos = [todo, ...todos];
